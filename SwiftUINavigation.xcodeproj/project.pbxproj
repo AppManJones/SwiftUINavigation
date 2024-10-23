@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6CE996212CC82664005C8299 /* Architecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6CE996202CC82664005C8299 /* Architecture */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6CE995E62CC80189005C8299 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,9 +33,22 @@
 		6CE995EF2CC80189005C8299 /* SwiftUINavigationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUINavigationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6CE9961E2CC825F3005C8299 /* Exceptions for "SwiftUINavigation" folder in "SwiftUINavigation" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SwiftPackages/Architecture,
+			);
+			target = 6CE995D42CC80188005C8299 /* SwiftUINavigation */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6CE995D72CC80188005C8299 /* SwiftUINavigation */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6CE9961E2CC825F3005C8299 /* Exceptions for "SwiftUINavigation" folder in "SwiftUINavigation" target */,
+			);
 			path = SwiftUINavigation;
 			sourceTree = "<group>";
 		};
@@ -52,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CE996212CC82664005C8299 /* Architecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +96,7 @@
 				6CE995D72CC80188005C8299 /* SwiftUINavigation */,
 				6CE995E82CC80189005C8299 /* SwiftUINavigationTests */,
 				6CE995F22CC80189005C8299 /* SwiftUINavigationUITests */,
+				6CE9961F2CC82664005C8299 /* Frameworks */,
 				6CE995D62CC80188005C8299 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +109,13 @@
 				6CE995EF2CC80189005C8299 /* SwiftUINavigationUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6CE9961F2CC82664005C8299 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +138,7 @@
 			);
 			name = SwiftUINavigation;
 			packageProductDependencies = (
+				6CE996202CC82664005C8299 /* Architecture */,
 			);
 			productName = SwiftUINavigation;
 			productReference = 6CE995D52CC80188005C8299 /* SwiftUINavigation.app */;
@@ -552,6 +579,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6CE996202CC82664005C8299 /* Architecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Architecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6CE995CD2CC80188005C8299 /* Project object */;
 }
