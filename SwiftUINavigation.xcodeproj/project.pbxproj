@@ -33,22 +33,9 @@
 		6CE995EF2CC80189005C8299 /* SwiftUINavigationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUINavigationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		6CE9961E2CC825F3005C8299 /* Exceptions for "SwiftUINavigation" folder in "SwiftUINavigation" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				SwiftPackages/Architecture,
-			);
-			target = 6CE995D42CC80188005C8299 /* SwiftUINavigation */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6CE995D72CC80188005C8299 /* SwiftUINavigation */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				6CE9961E2CC825F3005C8299 /* Exceptions for "SwiftUINavigation" folder in "SwiftUINavigation" target */,
-			);
 			path = SwiftUINavigation;
 			sourceTree = "<group>";
 		};
