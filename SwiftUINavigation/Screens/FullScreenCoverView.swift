@@ -27,8 +27,7 @@ struct FullScreenCoverView<Router: AppRouterProtocol>: View {
 
 private extension FullScreenCoverView {
     func dismiss() {
-        let event = MainAppNavigationEvent(screenFactory: MainAppScreenFactory(),
-                                           type: .dismissFullScreenCover)
+        let event = MainAppNavigationEvent(eventType: .dismissFullScreenCover)
         router.handle(event as! Router.NavigationEvent)
     }
 }

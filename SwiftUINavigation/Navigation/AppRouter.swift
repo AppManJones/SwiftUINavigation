@@ -3,46 +3,43 @@ import SwiftUI
 
 final
 class AppRouter: AppRouterProtocol {
-    
-    typealias Factory = MainAppScreenFactory
-    
     typealias NavigationEvent = MainAppNavigationEvent
     
-    typealias Screen = MainAppScreen
+    @Published var path = NavigationPath()
+    @Published var sheet: MainAppScreen?
+    @Published var fullScreenCover: MainAppScreen?
     
-    typealias V = AnyView
-
+    var factory: MainAppScreenFactory
     
-    @Published var fullScreenCover: Screen?
-    @Published var path: NavigationPath = NavigationPath()
-    @Published var sheet: Screen?
-
-    var factory: Factory
-
-    init(factory: Factory) {
+    init(factory: MainAppScreenFactory) {
         self.factory = factory
     }
-    
-    func build(_ screen: Screen) -> V {
-        AnyView(factory.build(screen)
-            .environmentObject(self))
-        
+
+    @ViewBuilder
+    func build(_ screen: MainAppScreen) -> some View {
+        factory.build(screen)
     }
-    
-    func handle(_ event: NavigationEvent<MainAppScreenFactory>) {
-        switch event.type {
-        case .dismissFullScreenCover:
-            dismissFullScreenOver()
+
+    func handle(_ event: NavigationEvent) {
+        switch event.eventType {
         case .dismissSheet:
             dismissSheet()
+        case .dismissFullScreenCover:
+            dismissFullScreenCover()
         case .pop:
             pop()
-        case .push(let screen):
-            push(screen)
-        case .showSheet(let screen):
-            presentSheet(screen)
-        case .showFullScreenCover(let screen):
-            presentFullScreenCover(screen)
+        case .push:
+            if let screen = event.screen {
+                push(screen)
+            }
+        case .showSheet:
+            if let screen = event.screen {
+                presentSheet(screen)
+            }
+        case .showFullScreenCover:
+            if let screen = event.screen {
+                presentFullScreenCover(screen)
+            }
         }
     }
 }

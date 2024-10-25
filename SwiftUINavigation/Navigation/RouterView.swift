@@ -19,17 +19,16 @@ struct RouterView<Router: AppRouterProtocol, Screen: ScreenProtocol, Content: Vi
                     router.build(screen)
                 }
                 .sheet(item: $router.sheet) { sheet in
-                    if let sheet = sheet as? MainAppScreen {
-                        let sheetRouter = AppRouter(factory: $router.factory.wrappedValue as! MainAppScreenFactory)
-                        RouterView(sheetRouter as! Router) {
-                            sheetRouter.build(sheet) as! Content
-                        }
-                    } else {
-                        EmptyView()
+                    let sheetRouter = AppRouter(factory: MainAppScreenFactory())
+                    RouterView(sheetRouter as! Router) {
+                        sheetRouter.build(sheet as! MainAppScreen) as! Content
                     }
                 }
                 .fullScreenCover(item: $router.fullScreenCover) { fullScreenCover in
-                    router.build(fullScreenCover)
+                    let sheetRouter = AppRouter(factory: MainAppScreenFactory())
+                    RouterView(sheetRouter as! Router) {
+                        sheetRouter.build(fullScreenCover as! MainAppScreen) as! Content
+                    }
                 }
         }
         .environmentObject(router)

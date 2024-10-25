@@ -28,20 +28,17 @@ struct HomeView<Router: AppRouterProtocol>: View {
 
 private extension HomeView {
     func handleShowDetails() {
-        let event = MainAppNavigationEvent(screenFactory: MainAppScreenFactory(),
-                                           type: .push(.detail))
+        let event = MainAppNavigationEvent(eventType: .push, screen: .detail)
         router.handle(event as! Router.NavigationEvent)
     }
     
     func handleShowSheet() {
-        let event = MainAppNavigationEvent(screenFactory: MainAppScreenFactory(),
-                                           type: .showSheet(.sheet))
+        let event = MainAppNavigationEvent(eventType: .showSheet, screen: .sheet)
         router.handle(event as! Router.NavigationEvent)
     }
     
     func handleShowFullScreenCover() {
-        let event = MainAppNavigationEvent(screenFactory: MainAppScreenFactory(),
-                                           type: .showFullScreenCover(.fullScreenCover))
+        let event = MainAppNavigationEvent(eventType: .showFullScreenCover, screen: .fullScreenCover)
         router.handle(event as! Router.NavigationEvent)
     }
 }

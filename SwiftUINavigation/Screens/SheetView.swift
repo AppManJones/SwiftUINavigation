@@ -27,14 +27,12 @@ struct SheetView<Router: AppRouterProtocol>: View {
 
 private extension SheetView {
     func handleDismissSheet() {
-        let event = MainAppNavigationEvent(screenFactory: MainAppScreenFactory(),
-                                           type: .dismissSheet)
+        let event = MainAppNavigationEvent(eventType: .dismissSheet)
         router.handle(event as! Router.NavigationEvent)
     }
     
     func handleShowDetailTwo() {
-        let event = MainAppNavigationEvent(screenFactory: MainAppScreenFactory(),
-                                           type: .push(.detail))
+        let event = MainAppNavigationEvent(eventType: .push, screen: .detail)
         router.handle(event as! Router.NavigationEvent)
     }
 }

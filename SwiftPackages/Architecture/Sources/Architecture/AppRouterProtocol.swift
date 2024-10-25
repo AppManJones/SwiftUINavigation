@@ -7,7 +7,7 @@ protocol AppRouterProtocol: ObservableObject {
     associatedtype Screen: ScreenProtocol
     associatedtype V: View
     
-    var factory: Factory { get set }
+    var factory: Factory { get }
     var fullScreenCover: Screen? { get set }
     var path: NavigationPath { get set }
     var sheet: Screen? { get set }
@@ -20,7 +20,7 @@ protocol AppRouterProtocol: ObservableObject {
     func pop()
     func popToRoot()
     func dismissSheet()
-    func dismissFullScreenOver()
+    func dismissFullScreenCover()
 }
 
 public
@@ -49,7 +49,7 @@ extension AppRouterProtocol {
         self.sheet = nil
     }
     
-    func dismissFullScreenOver() {
+    func dismissFullScreenCover() {
         self.fullScreenCover = nil
     }
 }

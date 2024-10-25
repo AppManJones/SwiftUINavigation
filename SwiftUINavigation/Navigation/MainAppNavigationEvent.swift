@@ -1,17 +1,13 @@
 import Architecture
 
-struct MainAppNavigationEvent<F: ScreenFactoryProtocol>: NavigationEventProtocol {
-    typealias Factory = F
-    typealias Screen = MainAppScreen
-
-    var screenFactory: F
-    var type: NavigationEventType<F.Screen>
-
+struct MainAppNavigationEvent: NavigationEventProtocol {
+    let eventType: NavigationEventType
+    let screen: MainAppScreen?
     init(
-        screenFactory: F = MainAppScreenFactory(),
-        type: NavigationEventType<F.Screen>
+        eventType: NavigationEventType,
+        screen: MainAppScreen? = nil
     ) {
-        self.screenFactory = screenFactory
-        self.type = type
+        self.eventType = eventType
+        self.screen = screen
     }
 }

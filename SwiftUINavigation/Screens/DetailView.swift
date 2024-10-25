@@ -21,8 +21,7 @@ struct DetailView<Router: AppRouterProtocol>: View {
 
 private extension DetailView {
     func handleShowSheet() {
-        let event = MainAppNavigationEvent(screenFactory: MainAppScreenFactory(),
-                                           type: .showSheet(.sheet))
+        let event = MainAppNavigationEvent(eventType: .showSheet, screen: .sheet)
         router.handle(event as! Router.NavigationEvent)
     }
 }

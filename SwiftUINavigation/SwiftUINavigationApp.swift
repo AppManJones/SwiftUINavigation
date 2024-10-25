@@ -10,7 +10,6 @@ import SwiftUI
 
 @main
 struct SwiftUINavigationApp: App {
-
     var body: some Scene {
         WindowGroup {
             RouterProvider.makeRouterView()
@@ -20,8 +19,7 @@ struct SwiftUINavigationApp: App {
 
 struct RouterProvider {
     static func makeRouterView() -> some View {
-        let mainScreenFactory = MainAppScreenFactory()
-        let router = AppRouter(factory: mainScreenFactory)
+        let router = AppRouter(factory: MainAppScreenFactory())
         return RouterView(router) {
             router.build(.home)
         }
