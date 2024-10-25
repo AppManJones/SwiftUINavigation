@@ -52,5 +52,6 @@ extension AppRouterProtocol {
     
     func dismissFullScreenCover() {
         self.parent?.fullScreenCover = nil
+        self.fullScreenCover = nil
     }
 }

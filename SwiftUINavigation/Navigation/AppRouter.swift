@@ -11,7 +11,7 @@ class AppRouter: AppRouterProtocol {
     var parent: AppRouter?
     
     init(
-        factory: MainAppScreenFactory,
+        factory: MainAppScreenFactory = MainAppScreenFactory(),
         parent: AppRouter? = nil
     ) {
         self.factory = factory
@@ -31,6 +31,8 @@ class AppRouter: AppRouterProtocol {
             dismissFullScreenCover()
         case .pop:
             pop()
+        case .popToRoot:
+            popToRoot()
         case .push:
             if let screen = event.screen {
                 push(screen)
