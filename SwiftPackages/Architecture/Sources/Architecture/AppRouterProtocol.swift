@@ -9,6 +9,7 @@ protocol AppRouterProtocol: ObservableObject {
     
     var factory: Factory { get }
     var fullScreenCover: Screen? { get set }
+    var parent: Self? { get set }
     var path: NavigationPath { get set }
     var sheet: Screen? { get set }
 
@@ -46,10 +47,10 @@ extension AppRouterProtocol {
     }
     
     func dismissSheet() {
-        self.sheet = nil
+        self.parent?.sheet = nil
     }
     
     func dismissFullScreenCover() {
-        self.fullScreenCover = nil
+        self.parent?.fullScreenCover = nil
     }
 }

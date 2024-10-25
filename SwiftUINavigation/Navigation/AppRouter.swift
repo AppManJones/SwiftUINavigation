@@ -5,14 +5,20 @@ final
 class AppRouter: AppRouterProtocol {
     typealias NavigationEvent = MainAppNavigationEvent
     
+    @Published var fullScreenCover: MainAppScreen?
     @Published var path = NavigationPath()
     @Published var sheet: MainAppScreen?
-    @Published var fullScreenCover: MainAppScreen?
+    
+    var parent: AppRouter?
     
     var factory: MainAppScreenFactory
     
-    init(factory: MainAppScreenFactory) {
+    init(
+        factory: MainAppScreenFactory,
+        parent: AppRouter? = nil
+    ) {
         self.factory = factory
+        self.parent = parent
     }
 
     @ViewBuilder
