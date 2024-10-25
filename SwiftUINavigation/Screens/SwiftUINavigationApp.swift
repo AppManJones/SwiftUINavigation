@@ -22,23 +22,8 @@ struct SwiftUINavigationApp: App {
 struct RouterProvider {
     static func makeRouterView() -> some View {
         let mainScreenFactory = MainAppScreenFactory()
-        let router = AppRouter(factory: mainScreenFactory, screenType: MainAppScreen.self)
+        let router = AppRouter(factory: mainScreenFactory)
         return RouterView<AppRouter, MainAppScreen>()
             .environmentObject(router)
     }
 }
-
-
-
-
-//public protocol FeatureModule {
-//    associatedtype Factory: ScreenFactory
-//    func registerScreens(with registry: ScreenFactoryRegistry<Factory>)
-//}
-//
-//struct ArchitecturalDemoFeatureModule: FeatureModule {
-//    func registerScreens(with registry: ScreenFactoryRegistry<ArchitecturalDemoScreenFactory>) {
-//        let factory = ArchitecturalDemoScreenFactory()
-//        registry.registerFactory(factory)
-//    }
-//}

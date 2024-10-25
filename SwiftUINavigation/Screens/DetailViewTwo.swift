@@ -1,15 +1,17 @@
+import Architecture
 import SwiftUI
 
-struct DetailView: View {
+struct DetailViewTwo<Router: AppRouterProtocol>: View {
+    
+    @EnvironmentObject var router: Router
+    
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             Spacer()
-            Text("Detail")
+            Text("Detail2")
                 .frame(alignment: .center)
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
-        .background(Color.gray)
     }
 }

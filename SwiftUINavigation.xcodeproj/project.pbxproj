@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6CE996212CC82664005C8299 /* Architecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6CE996202CC82664005C8299 /* Architecture */; };
+		6CA83DDC2CCB13D900E11275 /* Architecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6CA83DDB2CCB13D900E11275 /* Architecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +33,25 @@
 		6CE995EF2CC80189005C8299 /* SwiftUINavigationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUINavigationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6C609F5F2CCB4CD50066DAD7 /* Exceptions for "SwiftPackages" folder in "SwiftUINavigation" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Architecture,
+			);
+			target = 6CE995D42CC80188005C8299 /* SwiftUINavigation */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		6C609F5E2CCB4CD50066DAD7 /* SwiftPackages */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6C609F5F2CCB4CD50066DAD7 /* Exceptions for "SwiftPackages" folder in "SwiftUINavigation" target */,
+			);
+			path = SwiftPackages;
+			sourceTree = "<group>";
+		};
 		6CE995D72CC80188005C8299 /* SwiftUINavigation */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SwiftUINavigation;
@@ -56,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CE996212CC82664005C8299 /* Architecture in Frameworks */,
+				6CA83DDC2CCB13D900E11275 /* Architecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +98,7 @@
 		6CE995CC2CC80188005C8299 = {
 			isa = PBXGroup;
 			children = (
+				6C609F5E2CCB4CD50066DAD7 /* SwiftPackages */,
 				6CE995D72CC80188005C8299 /* SwiftUINavigation */,
 				6CE995E82CC80189005C8299 /* SwiftUINavigationTests */,
 				6CE995F22CC80189005C8299 /* SwiftUINavigationUITests */,
@@ -121,11 +140,12 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				6C609F5E2CCB4CD50066DAD7 /* SwiftPackages */,
 				6CE995D72CC80188005C8299 /* SwiftUINavigation */,
 			);
 			name = SwiftUINavigation;
 			packageProductDependencies = (
-				6CE996202CC82664005C8299 /* Architecture */,
+				6CA83DDB2CCB13D900E11275 /* Architecture */,
 			);
 			productName = SwiftUINavigation;
 			productReference = 6CE995D52CC80188005C8299 /* SwiftUINavigation.app */;
@@ -409,7 +429,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUINavigation/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -437,7 +457,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUINavigation/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -568,7 +588,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6CE996202CC82664005C8299 /* Architecture */ = {
+		6CA83DDB2CCB13D900E11275 /* Architecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Architecture;
 		};

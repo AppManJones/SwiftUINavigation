@@ -8,7 +8,13 @@ struct MainAppScreenFactory: ScreenFactoryProtocol {
         case .home:
             HomeView<AppRouter>()
         case .detail:
-            DetailView()
+            DetailView<AppRouter>()
+        case .detailTwo:
+            DetailViewTwo<AppRouter>()
+        case .fullScreenCover:
+            FullScreenCoverView<AppRouter>()
+        case .sheet:
+            SheetView<AppRouter>()
         }
     }
 }

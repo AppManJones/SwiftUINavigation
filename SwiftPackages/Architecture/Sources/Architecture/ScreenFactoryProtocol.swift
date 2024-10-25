@@ -1,5 +1,6 @@
 import SwiftUI
 
+public
 protocol ScreenFactoryProtocol: Equatable {
     associatedtype V: View
     associatedtype Screen: ScreenProtocol
