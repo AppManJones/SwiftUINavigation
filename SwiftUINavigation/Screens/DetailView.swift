@@ -26,6 +26,3 @@ private extension DetailView {
         router.handle(event as! Router.NavigationEvent)
     }
 }
-
-
-

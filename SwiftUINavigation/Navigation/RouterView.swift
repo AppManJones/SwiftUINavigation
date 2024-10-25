@@ -1,19 +1,32 @@
 import Architecture
 import SwiftUI
 
-struct RouterView<Router: AppRouterProtocol, Screen: ScreenProtocol>: View where Router.Screen == Screen {
-    @EnvironmentObject var router: Router
+struct RouterView<Router: AppRouterProtocol, Screen: ScreenProtocol, Content: View>: View where Router.Screen == Screen {
+
+    @StateObject var router: Router
     
-    init() {}
+    private let content: () -> Content
+
+    init(_ router: Router, @ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+        _router = StateObject(wrappedValue: router)
+    }
     
     var body: some View {
         NavigationStack(path: $router.path) {
-            MainAppScreenFactory().build(.home)
+            content()
                 .navigationDestination(for: Screen.self) { screen in
                     router.build(screen)
                 }
                 .sheet(item: $router.sheet) { sheet in
-                    router.build(sheet)
+                    if let sheet = sheet as? MainAppScreen {
+                        let sheetRouter = AppRouter(factory: $router.factory.wrappedValue as! MainAppScreenFactory)
+                        RouterView(sheetRouter as! Router) {
+                            sheetRouter.build(sheet) as! Content
+                        }
+                    } else {
+                        EmptyView()
+                    }
                 }
                 .fullScreenCover(item: $router.fullScreenCover) { fullScreenCover in
                     router.build(fullScreenCover)

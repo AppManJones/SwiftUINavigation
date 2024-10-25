@@ -18,12 +18,12 @@ struct SwiftUINavigationApp: App {
     }
 }
 
-
 struct RouterProvider {
     static func makeRouterView() -> some View {
         let mainScreenFactory = MainAppScreenFactory()
         let router = AppRouter(factory: mainScreenFactory)
-        return RouterView<AppRouter, MainAppScreen>()
-            .environmentObject(router)
+        return RouterView(router) {
+            router.build(.home)
+        }
     }
 }

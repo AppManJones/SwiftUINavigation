@@ -2,10 +2,12 @@ import SwiftUI
 
 public
 protocol AppRouterProtocol: ObservableObject {
+    associatedtype Factory: ScreenFactoryProtocol
     associatedtype NavigationEvent: NavigationEventProtocol
     associatedtype Screen: ScreenProtocol
     associatedtype V: View
     
+    var factory: Factory { get set }
     var fullScreenCover: Screen? { get set }
     var path: NavigationPath { get set }
     var sheet: Screen? { get set }

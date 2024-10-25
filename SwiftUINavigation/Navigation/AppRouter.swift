@@ -4,22 +4,32 @@ import SwiftUI
 final
 class AppRouter: AppRouterProtocol {
     
-    @Published var fullScreenCover: MainAppScreen?
+    typealias Factory = MainAppScreenFactory
+    
+    typealias NavigationEvent = MainAppNavigationEvent
+    
+    typealias Screen = MainAppScreen
+    
+    typealias V = AnyView
+
+    
+    @Published var fullScreenCover: Screen?
     @Published var path: NavigationPath = NavigationPath()
-    @Published var sheet: MainAppScreen?
+    @Published var sheet: Screen?
 
-    private let factory: MainAppScreenFactory
+    var factory: Factory
 
-    init(factory: MainAppScreenFactory) {
+    init(factory: Factory) {
         self.factory = factory
     }
     
-    func build(_ screen: MainAppScreen) -> some View {
-        factory.build(screen)
-            .environmentObject(self)
+    func build(_ screen: Screen) -> V {
+        AnyView(factory.build(screen)
+            .environmentObject(self))
+        
     }
     
-    func handle(_ event: MainAppNavigationEvent<MainAppScreenFactory>) {
+    func handle(_ event: NavigationEvent<MainAppScreenFactory>) {
         switch event.type {
         case .dismissFullScreenCover:
             dismissFullScreenOver()
