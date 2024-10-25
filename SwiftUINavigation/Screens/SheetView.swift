@@ -32,7 +32,7 @@ private extension SheetView {
     }
     
     func handleShowDetailTwo() {
-        let event = MainAppNavigationEvent(eventType: .push, screen: .detail)
+        let event = MainAppNavigationEvent(eventType: .push, screen: .detailTwo)
         router.handle(event as! Router.NavigationEvent)
     }
 }

@@ -3,15 +3,12 @@ import SwiftUI
 
 final
 class AppRouter: AppRouterProtocol {
-    typealias NavigationEvent = MainAppNavigationEvent
-    
     @Published var fullScreenCover: MainAppScreen?
     @Published var path = NavigationPath()
     @Published var sheet: MainAppScreen?
     
-    var parent: AppRouter?
-    
     var factory: MainAppScreenFactory
+    var parent: AppRouter?
     
     init(
         factory: MainAppScreenFactory,
@@ -26,7 +23,7 @@ class AppRouter: AppRouterProtocol {
         factory.build(screen)
     }
 
-    func handle(_ event: NavigationEvent) {
+    func handle(_ event: MainAppNavigationEvent) {
         switch event.eventType {
         case .dismissSheet:
             dismissSheet()
