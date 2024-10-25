@@ -1,7 +1,7 @@
 import Architecture
 import SwiftUI
 
-struct RouterView<Router: AppRouterProtocol, Screen: ScreenProtocol, Content: View>: View where Router.Screen == Screen {
+struct RouterView<Router: AppRouterProtocol, Screen: ScreenProtocol, Content: View>: RouterViewProtocol where Router.Screen == Screen {
 
     @StateObject var router: Router
     
@@ -19,20 +19,28 @@ struct RouterView<Router: AppRouterProtocol, Screen: ScreenProtocol, Content: Vi
                     router.build(screen)
                 }
                 .sheet(item: $router.sheet) { sheet in
-                    let sheetRouter = AppRouter(factory: MainAppScreenFactory(),
-                                                parent: router as? AppRouter)
-                    RouterView(sheetRouter as! Router) {
-                        sheetRouter.build(sheet as! MainAppScreen) as! Content
-                    }
+                    view(for: sheet)
                 }
                 .fullScreenCover(item: $router.fullScreenCover) { fullScreenCover in
-                    let sheetRouter = AppRouter(factory: MainAppScreenFactory(),
-                                                parent: router as? AppRouter)
-                    RouterView(sheetRouter as! Router) {
-                        sheetRouter.build(fullScreenCover as! MainAppScreen) as! Content
-                    }
+                    view(for: fullScreenCover)
                 }
         }
         .environmentObject(router)
+    }
+}
+
+private extension RouterView {
+    @ViewBuilder
+    func view(for screen: Screen) -> some View {
+        if let sheetRouter = AppRouter(factory: MainAppScreenFactory(),
+                                       parent: router as? AppRouter) as? Router,
+           let contentView = sheetRouter.build(screen) as? Content
+        {
+            RouterView(sheetRouter) { contentView }
+        }
+        else
+        {
+            EmptyView()
+        }
     }
 }
