@@ -1,10 +1,3 @@
-//
-//  SwiftUINavigationApp.swift
-//  SwiftUINavigation
-//
-//  Created by Joseph Rouleau on 10/22/24.
-//
-
 import Architecture
 import SwiftUI
 
@@ -12,12 +5,12 @@ import SwiftUI
 struct SwiftUINavigationApp: App {
     var body: some Scene {
         WindowGroup {
-            RouterProvider.makeRouterView()
+            RouterViewProvider.makeRouterView()
         }
     }
 }
 
-struct RouterProvider {
+struct RouterViewProvider {
     static func makeRouterView() -> some View {
         let router = AppRouter(factory: MainAppScreenFactory())
         return RouterView(router) {
